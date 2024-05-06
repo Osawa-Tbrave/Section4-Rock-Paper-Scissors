@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-st.title("Rock-Paper-Scissors")
+st.title("Rock-Paper-Scissors1")
 
 
 
