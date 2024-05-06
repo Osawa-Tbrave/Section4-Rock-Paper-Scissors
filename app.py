@@ -3,8 +3,6 @@ import random
 
 st.title("Rock-Paper-Scissors1")
 
-
-
 rock = '''
     _______
 ---'   ____)
@@ -32,25 +30,23 @@ scissors = '''
 ---.__(___)
 '''
 
-#Write your code below this line 👇
-import random
-your_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
-cpu_choice = random.randint(0,2) # int
-# 選択肢の表示
 choices = [rock, paper, scissors]
-if your_choice not in [0,1,2]:
-  print("You typed an invalid number, you lose!")
-elif your_choice == cpu_choice:
-  print(f"Your choice:{choices[your_choice]} \n CPU choice:{choices[cpu_choice]}")
-  print("Draw")
-elif (your_choice == 0 and cpu_choice == 1) or (your_choice == 1 and cpu_choice == 2) or (your_choice == 2 and cpu_choice == 0):
-  print(f"Your choice:{choices[your_choice]} \n CPU choice:{choices[cpu_choice]}")
-  print("You lose")
-elif your_choice >= 3 or your_choice < 0:
-  print("You typed an invalid number, you lose!")
-else:
-  print(f"Your choice:{choices[your_choice]} \n CPU choice:{choices[cpu_choice]}")
-  print("You win")
 
-print("---")
-print("リストとインデックスの扱いとランダムを用いました。 \n デバッグを含めた条件分岐。入力が数字以外、文字列の場合の対処。")
+your_choice = st.radio("What do you choose?", options=["Rock", "Paper", "Scissors"])
+your_choice_index = ["Rock", "Paper", "Scissors"].index(your_choice)
+cpu_choice_index = random.randint(0,2) # int
+
+# ユーザーの選択を表示
+st.write("Your choice:")
+st.code(choices[your_choice_index])
+
+# CPUの選択を表示
+st.write("CPU choice:")
+st.code(choices[cpu_choice_index])
+
+if your_choice_index == cpu_choice_index:
+  st.write("Draw")
+elif (your_choice_index == 0 and cpu_choice_index == 1) or (your_choice_index == 1 and cpu_choice_index == 2) or (your_choice_index == 2 and cpu_choice_index == 0):
+  st.write("You lose")
+else:
+  st.write("You win")
