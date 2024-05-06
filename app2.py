@@ -30,7 +30,7 @@ scissors = '''
 
 choices = [rock, paper, scissors]
 
-st.title("Rock-Paper-Scissors")
+st.title("Rock-Paper-Scissors2")
 
 your_choice = st.selectbox("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.", options=[("Rock", 0), ("Paper", 1), ("Scissors", 2)])
 cpu_choice = random.randint(0,2)
